@@ -1,0 +1,20 @@
+<div class="card chart-card">
+  <header class="card-header">
+    <div>
+      <h2 class="card-title">{{ data.title }}</h2>
+      <p class="card-subtitle">{{ data.subheader }}</p>
+    </div>
+  </header>
+
+  <apx-chart
+    [series]="chartOptions.series"
+    [chart]="chartOptions.chart"
+    [stroke]="chartOptions.stroke"
+    [xaxis]="chartOptions.xaxis"
+    [yaxis]="chartOptions.yaxis"
+    [dataLabels]="chartOptions.dataLabels"
+    [tooltip]="chartOptions.tooltip"
+    [legend]="chartOptions.legend"
+    [grid]="chartOptions.grid"
+  ></apx-chart>
+</div>

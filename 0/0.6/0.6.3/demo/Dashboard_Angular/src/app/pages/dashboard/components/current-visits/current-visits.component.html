@@ -1,0 +1,16 @@
+<div class="card chart-card">
+  <header class="card-header">
+    <h2 class="card-title">{{ data.title }}</h2>
+  </header>
+
+  <apx-chart
+    [series]="chartOptions.series"
+    [chart]="chartOptions.chart"
+    [labels]="chartOptions.labels"
+    [stroke]="chartOptions.stroke"
+    [tooltip]="chartOptions.tooltip"
+    [plotOptions]="chartOptions.plotOptions"
+    [legend]="chartOptions.legend"
+    [responsive]="chartOptions.responsive"
+  ></apx-chart>
+</div>
