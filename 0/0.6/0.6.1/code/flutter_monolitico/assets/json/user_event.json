@@ -1,0 +1,27 @@
+[
+    {
+      "id": 1,
+      "userId": 1,
+      "eventId": 101,
+      "roleId": 2,
+      "confirmationTypeId": 1,
+      "taskId": 201
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "eventId": 102,
+      "roleId": 1,
+      "confirmationTypeId": 2,
+      "taskId": 202
+    },
+    {
+      "id": 3,
+      "userId": 2,
+      "eventId": 103,
+      "roleId": 3,
+      "confirmationTypeId": 1,
+      "taskId": 203
+    }
+  ]
+  
