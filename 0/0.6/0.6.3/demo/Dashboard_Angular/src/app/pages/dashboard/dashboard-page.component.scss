@@ -1,0 +1,22 @@
+section + section {
+  margin-top: 40px;
+}
+
+.chart-section__grid {
+  display: grid;
+  gap: 24px;
+}
+
+@media (min-width: 1200px) {
+  .chart-section__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .chart-section__grid app-current-visits {
+    grid-column: span 1;
+  }
+
+  .chart-section__grid app-website-visits {
+    grid-column: span 2;
+  }
+}

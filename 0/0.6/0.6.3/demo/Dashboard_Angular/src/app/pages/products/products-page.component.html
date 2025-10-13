@@ -1,0 +1,33 @@
+<section class="products-page">
+  <header class="products-page__header">
+    <h2 class="section-title">Productos</h2>
+    <p class="products-page__description">
+      Gestiona tu catálogo y actualiza la información en segundos.
+    </p>
+  </header>
+
+  <div class="products-grid">
+    <article class="card product-card" *ngFor="let product of products; trackBy: trackByProductId">
+      <div class="product-card__badge" *ngIf="product.status" [ngClass]="statusClass(product.status)">
+        {{ statusLabel(product.status) }}
+      </div>
+
+      <div class="product-card__media" [style.background-image]="imageUrl(product.image)">
+        <span class="product-card__media-fallback" *ngIf="!hasImage(product.image)">
+          {{ productInitials(product.name) }}
+        </span>
+      </div>
+
+      <div class="product-card__body">
+        <h3 class="product-card__name">{{ product.name }}</h3>
+        <div class="product-card__meta">
+          <span class="product-card__stock">
+            <span class="product-card__stock-dot" [style.background-color]="product.stockColor"></span>
+            {{ product.stockLabel }}
+          </span>
+          <span class="product-card__price">{{ formatCurrency(product.price) }}</span>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
