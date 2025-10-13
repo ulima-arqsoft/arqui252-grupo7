@@ -1,0 +1,32 @@
+[
+    {
+        "idUsuario": 1,
+        "nombreUsuario": "Hideki",
+        "correo": "hideki.sotero@gmail.com",
+        "password": "123"
+    },
+    {
+        "idUsuario": 2,
+        "nombreUsuario": "Luis Martinez",
+        "correo": "luis.martinez@example.com",
+        "password": "123"
+    },
+    {
+        "idUsuario": 3,
+        "nombreUsuario": "Walter Campos",
+        "correo": "walter.campos@example.com",
+        "password": "123"
+    },
+    {
+        "idUsuario": 4,
+        "nombreUsuario": "Alvaro Sanchez",
+        "correo": "alvaro.sanchez@example.com",
+        "password": "123"
+    },
+    {
+        "idUsuario": 5,
+        "nombreUsuario": "Kohji Onaja",
+        "correo": "kohji.onaja@example.com",
+        "password": "123"
+    }
+]

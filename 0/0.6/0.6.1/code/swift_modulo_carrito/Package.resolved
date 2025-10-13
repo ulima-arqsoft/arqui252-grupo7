@@ -1,0 +1,15 @@
+{
+  "originHash" : "9c1c832c97d205c4b4f3ed02c5ad55afd60c98a013353cec1f21551d0d9b4a82",
+  "pins" : [
+    {
+      "identity" : "loopcore",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Konaja04/LoopCore.git",
+      "state" : {
+        "revision" : "cc48b29a9ece67eaa13922ab1126a57464f62871",
+        "version" : "0.0.6"
+      }
+    }
+  ],
+  "version" : 3
+}

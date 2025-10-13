@@ -1,0 +1,14 @@
+[
+{
+    "id": 1,
+    "title": "Music Festival",
+    "description": "A fun music festival",
+    "thumbnail": "musicfest_thumb.jpg",
+    "wspLink": "https://whatsapp.com",
+    "musicLink": "https://spotify.com",
+    "categoryId": 101,
+    "datetime": "2024-10-10T18:30:00",
+    "locationId": 501
+  }
+
+]

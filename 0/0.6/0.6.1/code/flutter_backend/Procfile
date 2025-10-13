@@ -1,0 +1,2 @@
+web: gunicorn app_queSale_backend.wsgi
+web: python manage.py collectstatic --noinput && gunicorn app_queSale_backend.wsgi
