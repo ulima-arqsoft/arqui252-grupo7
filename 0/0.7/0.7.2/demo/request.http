@@ -1,0 +1,7 @@
+POST http://localhost:8000/orders
+Content-Type: application/json
+
+{
+  "customer_id": {{$randomInt 100 999}},
+  "total": {{$randomInt 50 500}}
+}
