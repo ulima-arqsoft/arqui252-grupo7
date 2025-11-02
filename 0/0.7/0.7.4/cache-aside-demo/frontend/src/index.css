@@ -1,7 +1,9 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* 1) Cargar Tailwind v4 */
+@import "tailwindcss";
 
-:root {
-  color-scheme: light;
+/* 2) Tus utilidades personalizadas (después del import) */
+@layer utilities {
+  .text-muted-foreground {
+    @apply text-gray-600;
+  }
 }
