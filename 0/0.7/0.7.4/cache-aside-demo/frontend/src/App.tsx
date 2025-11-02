@@ -13,6 +13,7 @@ type Product = {
   price: number;
   stock: number;
   updated_at: string;
+  image_url?: string; // <-- nuevo
 };
 
 type Perf = {
@@ -30,6 +31,8 @@ export default function App() {
 
   const [perf, setPerf] = useState<Perf | null>(null);
   const [loadingPerf, setLoadingPerf] = useState(false);
+
+  const [view, setView] = useState<"search" | "list">("search");
 
   const fetchProduct = async (id: string) => {
     if (!id) {

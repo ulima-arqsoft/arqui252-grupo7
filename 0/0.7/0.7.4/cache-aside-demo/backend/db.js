@@ -17,23 +17,23 @@ CREATE TABLE IF NOT EXISTS products (
 `);
 
 function getProductById(id) {
-    return db.prepare('SELECT * FROM products WHERE id = ?').get(id);
+  return db.prepare('SELECT * FROM products WHERE id = ?').get(id);
 }
 
 function updateProduct(id, fields) {
-    const product = getProductById(id);
-    if (!product) return false;
+  const product = getProductById(id);
+  if (!product) return false;
 
-    const name = fields.name ?? product.name;
-    const price = fields.price ?? product.price;
-    const stock = fields.stock ?? product.stock;
-    const updated_at = new Date().toISOString();
+  const name = fields.name ?? product.name;
+  const price = fields.price ?? product.price;
+  const stock = fields.stock ?? product.stock;
+  const updated_at = new Date().toISOString();
 
-    db.prepare(`
+  db.prepare(`
     UPDATE products SET name = ?, price = ?, stock = ?, updated_at = ? WHERE id = ?
   `).run(name, price, stock, updated_at, id);
 
-    return true;
+  return true;
 }
 
 module.exports = { getProductById, updateProduct, db };
