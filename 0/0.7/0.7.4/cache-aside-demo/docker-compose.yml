@@ -1,0 +1,37 @@
+version: "3.9"
+
+services:
+  # --- Servicio Redis ---
+  redis:
+    image: redis:7.2
+    container_name: redis-cache
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: [ "redis-server", "--save", "60", "1", "--loglevel", "warning" ]
+    restart: always
+
+  # --- Backend Node.js ---
+  backend:
+    build:
+      context: ./backend
+    container_name: cache-aside-backend
+    command: npm start
+    ports:
+      - "3001:3001"
+    environment:
+      - PORT=3001
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - BASE_URL=http://localhost:3001
+      - URL_TTL_SECONDS=600
+    depends_on:
+      - redis
+    volumes:
+      - ./backend:/app
+    working_dir: /app
+    restart: always
+
+volumes:
+  redis_data:
