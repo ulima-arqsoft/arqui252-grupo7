@@ -175,7 +175,40 @@ Abre en el navegador http://localhost:5173
   - Hits / Misses acumulados.
   - Porcentaje de aciertos
 
-## 8. Resultados Observados
+## 8. Diagrama de contenedores de la demo
+
+```mermaid
+flowchart LR
+  %% Agrupación lógica por host
+  subgraph Host["Host / Docker Compose Network"]
+    direction LR
+
+    subgraph FE["Frontend (Vite / React, puerto 5173)"]
+      BROWSER["Navegador (UI React + Tailwind)"]
+    end
+
+    subgraph BE["Backend (Node.js + Express, puerto 3001)"]
+      API["API Express /endpoints:- GET /api/products/:id - GET /api/performance"]
+      DBFILE[("SQLite app.db (archivo dentro del contenedor)")]
+      VOL1[/"Volume: ./backend → /app"/]
+      API --- VOL1
+      API --- DBFILE
+    end
+
+    subgraph CACHE["Redis (puerto 6379)"]
+      REDIS[("Redis Server KV: product:{id}\nMetadatos: hits/miss")]
+      VOL2[/"Volume: redis_data → /data"/]
+      REDIS --- VOL2
+    end
+  end
+
+  %% Conexiones
+  BROWSER -- Fetch (HTTP) --> API
+  API -- Consulta/Escritura (TCP) --> REDIS
+  API -- Lectura/Escritura (local) --> DBFILE
+```
+
+## 9. Resultados Observados
 
 | Atributo de Calidad | Descripción                                                                           |
 | ------------------- | ------------------------------------------------------------------------------------- |
@@ -184,12 +217,12 @@ Abre en el navegador http://localhost:5173
 | **Disponibilidad**  | TTL automático evita saturación y mantiene datos frescos.                             |
 | **Mantenibilidad**  | Código modular: cada capa (frontend, backend, cache, DB) desacoplada.                 |
 
-## 9. Conclusión
+## 10. Conclusión
 El patrón Cache-Aside permite optimizar el rendimiento y la eficiencia en arquitecturas distribuidas mediante la carga diferida de datos en la caché.
 En esta demo se evidencia cómo Redis actúa como una capa de acceso ultrarrápido, reduciendo las lecturas en base de datos y mejorando los tiempos de respuesta.
 Este enfoque resulta ideal para aplicaciones e-commerce o catálogos donde los datos cambian poco pero se consultan frecuentemente.
 
-## 10. Referencias
+## 11. Referencias
 - Microsoft Azure Architecture Center (2024). Cache-Aside Pattern.
 https://learn.microsoft.com/en-us/azure/architecture/patterns/cache-aside
 - Redis Labs (2024). Redis Documentation. https://redis.io/docs
