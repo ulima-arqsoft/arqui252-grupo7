@@ -1,0 +1,9 @@
+/* 1) Cargar Tailwind v4 */
+@import "tailwindcss";
+
+/* 2) Tus utilidades personalizadas (después del import) */
+@layer utilities {
+  .text-muted-foreground {
+    @apply text-gray-600;
+  }
+}
